@@ -1,1 +1,3 @@
-# clase32
+Trabajo practico de la clase32. 
+
+Leonel Anchaba

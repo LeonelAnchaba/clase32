@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1>¡BIENVENIDO!</h1>
+  <form action="/" method="post" class="form_bienvenida">
+    <label for="name" class="form-label">Ingrese su nombre :</label>
+    <input type="text" name="name" id="name" required>
+
+    <label for="color" class="form-label">Color favorito :</label>
+    <select name="color" id="color" required>
+
+      <option value="Rojo">Rojo</option>
+      <option value="Verde">Verde</option>
+      <option value="Azul">Azul</option>
+
+    </select>
+
+    <label for="email" class="form-label">Ingrese su email :</label>
+    <input type="email" name="email" id="email" required>
+
+    <label for="age" class="form-label">Ingrese su edad :</label>
+    <input type="number" name="age" id="age">
+
+    <button type="submit" class="button__login">Enviar</button>
+  </form>
+</body>
+
+</html>
