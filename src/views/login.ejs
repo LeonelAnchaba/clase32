@@ -7,7 +7,8 @@
   <body style="background-color: <%= dataUser.color == "Rojo" ? "red" : dataUser.color == "Verde" ? "green" : dataUser.color == "Azul" ? "blue" : dataUser.color == "Amarillo" ? "yellow" : dataUser.color == "Rosa" ? "pink" : dataUser.color == "Celeste" ? "skyblue" : null %>">
     <h2> Hola <%= dataUser.name%>, elegiste el color: <%= dataUser.color %>, tu email es:
       <%= dataUser.email %> y tu edad es: <%= dataUser.age ? dataUser.age : "Probablemente mayor a 5 y menor a 100. Pero si partimos de la base de que olvidaste completar esta parte del formulario, diría que te encontras más cercano al segundo valor..." %></h2>
-    
-    </form>
+      <a href="/olvidar"><button>Olvidar color</button></a>
+    <a href="/menu"><button>Menú principal</button></a>
+
   </body>
 </html>

@@ -40,6 +40,9 @@
     <label for="age" class="form-label">Ingrese su edad :</label>
     <input type="text" name="age" id="age" value="<%= locals.old && old.age ? old.age : null %>">
     <%= locals.errors && errors.age ? errors.age.msg : null %>
+    
+    <label for="rememberMe">Recordar color</label> 
+    <input type="checkbox" name="rememberMe" id="rememberMe">
 
     <button type="submit" class="button__login">Enviar</button>
   </form>

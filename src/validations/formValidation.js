@@ -12,5 +12,5 @@ module.exports = [
     .notEmpty().withMessage("El campo no puede estar vacio").bail()
     .isEmail().withMessage("El valor ingresado debe tener el formato de un correo electronico").bail(),
     check("age")
-    .isInt().withMessage("El campo admite SOLO numero enteros").bail()
+    .isInt().withMessage("El campo admite SOLO numero enteros")
 ]

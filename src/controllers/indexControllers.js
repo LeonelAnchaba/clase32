@@ -18,6 +18,13 @@ const indexControllers = {
         res.render("login", { title: 'Express', dataUser })
       }
       },
+      menu: (req, res) => {
+        const dataUser = req.body
+        res.render("visita", { title: 'Menú', dataUser })
+      },
+      olvidar: (req,res) => {
+        res.send("Llega hasta acá")
+      }
 }
 
 module.exports = indexControllers

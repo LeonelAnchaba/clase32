@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body style="background-color: <%= dataUser.color == "Rojo" ? "red" : dataUser.color == "Verde" ? "green" : dataUser.color == "Azul" ? "blue" : dataUser.color == "Amarillo" ? "yellow" : dataUser.color == "Rosa" ? "pink" : dataUser.color == "Celeste" ? "skyblue" : null %>">
+    <h1> <%= dataUser.name%>, gracias por visitarnos </h1>
+    
+    <a href="/olvidar"><button>Olvidar color</button></a>
+  </body>
+</html>
