@@ -3,8 +3,10 @@ const indexControllers = {
         res.render('index', { title: 'Express' });
       },
     login: (req, res) => {
-        // res.render('error', { title: 'ERROR' });
-        res.render("login", { title: 'Express' })
+        console.log(req.body)
+        const dataUser = req.body
+        console.log(dataUser.name)
+        res.render("login", { title: 'Express', dataUser })
       },
 }
 
