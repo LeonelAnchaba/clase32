@@ -3,6 +3,8 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const session = require("express-session")
+const sessionValidate = require("./middlewares/sessionValidate")
 
 var indexRouter = require('./routes/index');
 
@@ -18,6 +20,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../public')));
+app.use(session({
+  secret: "Shhhhh",
+  resave: false,
+  saveUninitialized: true
+}))
+app.use(sessionValidate)
+
 
 app.use('/', indexRouter);
 

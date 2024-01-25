@@ -2,29 +2,42 @@ const { validationResult } = require("express-validator")
 
 const indexControllers = {
     index: (req, res) => {
+      if(req.cookies.dataUser && req.cookies.rememberMe){
+        // res.send("Holi")
+        res.render("login", { title: 'Express', dataUser: req.cookies.dataUser })
+      } else {
         res.render('index', { title: 'Express' });
+      }
+       
       },
     login: (req, res) => {
         const resultValidation = validationResult(req)
 
         if(!resultValidation.isEmpty()) {
           res.render('index', { errors: resultValidation.mapped(), title: "Error", old:req.body});
-          console.log("Entré acá................................")
-        
-      } else {
-        console.log(req.body)
+      } 
         const dataUser = req.body
-        console.log(dataUser.name)
-        res.render("login", { title: 'Express', dataUser })
+        req.session.usuario = dataUser
+
+        res.cookie('dataUser', dataUser, {maxAge: 1000 * 60 * 15 })
+        if(dataUser.rememberMe){    
+          res.cookie('rememberMe', dataUser.color, {maxAge: 1000 * 60 * 15 })
       }
+
+        res.render("login", { title: 'Express', dataUser: req.session.usuario })
+      
       },
       menu: (req, res) => {
-        const dataUser = req.body
-        res.render("visita", { title: 'Menú', dataUser })
+        res.render("visita", { title: 'Menú', dataUser: req.session.usuario })
       },
       olvidar: (req,res) => {
-        res.send("Llega hasta acá")
+      req.session.destroy();
+      if (req.cookies.rememberMe) {
+        res.clearCookie('dataUser');
+        res.clearCookie('rememberMe');
       }
+      res.redirect('/');
+    },
 }
 
 module.exports = indexControllers
