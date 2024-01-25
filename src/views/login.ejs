@@ -4,10 +4,18 @@
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
-  <body style="background-color: red;">
-    <h2> Hola <%= %>, elegiste el color: <%= %>, tu email es:
-      <%= %> y tu edad es: <%= %></h2>
+  <body style="background-color: <%= dataUser.color == "Rojo" ? "red" : dataUser.color == "Verde" ? "green" : dataUser.color == "Azul" ? "blue" : dataUser.color == "Amarillo" ? "yellow" : dataUser.color == "Rosa" ? "pink" : dataUser.color == "Celeste" ? "skyblue" : null %>">
+    <h2> Hola <%= dataUser.name%>, elegiste el color: <%= dataUser.color %>, tu email es:
+      <%= dataUser.email %> y tu edad es: <%= dataUser.age ? dataUser.age : "Probablemente mayor a 5 y menor a 100. Pero si partimos de la base de que olvidaste completar esta parte del formulario, diría que te encontras más cercano al segundo valor..." %></h2>
     
+      <form method="get" action="/olvidar">
+        <button type="submit">Olvidar color</button>
+      </form>
+    <!-- <a href="/menu"><button>Menú principal</button></a> -->
+    <form method="get" action="/menu">
+      <button type="submit">Menú principal
+      </button>
     </form>
+
   </body>
 </html>

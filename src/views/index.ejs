@@ -11,8 +11,20 @@
 <body>
   <h1>¡BIENVENIDO!</h1>
   <form action="/" method="post" class="form_bienvenida">
+    
+    <!-- Duda: La consigna nos pide que el nombre, el color
+       y el mail sean campos requeridos, 
+      pero a la hora de validarlos pide que los campos 
+      que no se hayan completado muestren el error.
+      Si marco como required el input
+      no llego a la validación y esa misma queda obsoleta -->
     <label for="name" class="form-label">Ingrese su nombre :</label>
-    <input type="text" name="name" id="name" required>
+    <input type="text" name="name" id="name" required value="<%= locals.old && old.name ? old.name : null %>">
+    <%= locals.errors && errors.name ? errors.name.msg : null %>
+    
+
+      
+      
 
     <label for="color" class="form-label">Color favorito :</label>
     <select name="color" id="color" required>
@@ -20,14 +32,23 @@
       <option value="Rojo">Rojo</option>
       <option value="Verde">Verde</option>
       <option value="Azul">Azul</option>
+      <option value="Amarillo">Amarillo</option>
+      <option value="Rosa">Rosa</option>
+      <option value="Celeste">Celeste</option>
 
     </select>
+    <%= locals.errors && errors.color ? errors.color.msg : null %>
 
     <label for="email" class="form-label">Ingrese su email :</label>
-    <input type="email" name="email" id="email" required>
+    <input type="email" name="email" id="email" required value="<%= locals.old && old.email ? old.email : null %>">
+    <%= locals.errors && errors.email ? errors.email.msg : null %>
 
     <label for="age" class="form-label">Ingrese su edad :</label>
-    <input type="number" name="age" id="age">
+    <input type="text" name="age" id="age" value="<%= locals.old && old.age ? old.age : null %>">
+    <%= locals.errors && errors.age ? errors.age.msg : null %>
+    
+    <label for="rememberMe">Recordar color</label> 
+    <input type="checkbox" name="rememberMe" id="rememberMe">
 
     <button type="submit" class="button__login">Enviar</button>
   </form>
