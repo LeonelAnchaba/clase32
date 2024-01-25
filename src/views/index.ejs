@@ -44,7 +44,10 @@
     <%= locals.errors && errors.email ? errors.email.msg : null %>
 
     <label for="age" class="form-label">Ingrese su edad :</label>
-    <input type="text" name="age" id="age" value="<%= locals.old && old.age ? old.age : null %>">
+    <!-- Dejé committeada la válidación del tipo de dato que recibiamos de este input 
+    Por ende, cambié el type de text a number. Simplemente para que siga siendo optativo este campo
+    pero para asegurarme de que llegue si o si un number en caso de que lo completen -->
+    <input type="number" name="age" id="age" value="<%= locals.old && old.age ? old.age : null %>">
     <%= locals.errors && errors.age ? errors.age.msg : null %>
     
     <label for="rememberMe">Recordar color</label> 

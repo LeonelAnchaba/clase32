@@ -13,7 +13,7 @@ module.exports = [
     .isEmail().withMessage("El valor ingresado debe tener el formato de un correo electronico").bail(),
     check("age")
     .optional({ nullable: true })
-    .isInt().withMessage('La edad debe ser un número.')
+    // .isInt().withMessage('La edad debe ser un número.')
     // El campo de la edad es opcional, pero a la vez nos pide que 
     // validemos si lo ingresado en el mismo es un número
     // y caso contrario, mostrar el error.
